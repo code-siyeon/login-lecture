@@ -5,8 +5,9 @@ const express = require("express");
 const router = express.Router();
 const ctrl = require("./home.ctrl");  // 파일을 불러와 사용
 
-router.get("/", ctrl.hello);  // 이 함수 부분이 컨트롤러라 할 수 있고, 컨트롤러를 분리한 것임 
-router.get("/login", ctrl.login);
+router.get("/", ctrl.output.home);  // 이 함수 부분이 컨트롤러라 할 수 있고, 컨트롤러를 분리한 것임 
+router.get("/login", ctrl.output.login);
+router.post("/login", ctrl.process.login);
 
 
 

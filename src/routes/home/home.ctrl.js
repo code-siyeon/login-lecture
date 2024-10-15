@@ -1,15 +1,48 @@
 'use strict';
-const hello = (req, res) => {
-    res.render("home/index");
+
+const { use } = require('.');
+
+
+const output = {
+    home: (req, res) => {
+        res.render("home/index");
+    },
+
+    login: (req, res) => {
+        res.render("home/login");
+    },
+}
+
+const users = {
+    id: ["바나나", "딸기", "초코"],
+    psword: ["1234", "12345", "123456"],
 };
 
-const login = (req, res) => {
-    res.render("home/login");
+const process = {
+    login: (req, res) => {
+        const id = req.body.id,
+            psword = req.body.psword
+
+        if (users.id.includes(id)) {
+            const idx = users.id.indexOf(id)
+            if (users.psword[idx] === psword) {
+                return res.json({
+                    success: true,
+                });
+            }
+        }
+
+        return res.json({
+            success: false,
+            msg: "아이디 또는 비밀번호가 틀립니다",
+        });
+    },
 };
+
 
 module.exports = {
-    hello,
-    login,
+    output,
+    process,
 };
 
 
