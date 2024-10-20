@@ -1,3 +1,5 @@
+//클라이언트
+
 "use strict";
 
 const id = document.querySelector("#id");
@@ -30,4 +32,5 @@ function login() {
         .catch((error) => {
             console.error("로그인 중 에러 발생:", error);
         });
-};
+}
+
