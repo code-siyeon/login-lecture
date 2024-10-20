@@ -27,7 +27,7 @@ html {
 }
 
 .login-box .user-box input,
-.login-box button {
+#button {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
@@ -64,17 +64,18 @@ html {
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
   overflow: hidden;
   transition: .5s;
-  letter-spacing: 4px
+  letter-spacing: 4px;
 }
 
-.login-box button {
-  margin-bottom: 0;
+#button {
+  margin: 0 auto;
   border-bottom: none;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   font-size: 18px;
+  text-align: center;
 }
-
 
 /* 저작권 (c) 2024 Soufiane Khalfaoui HaSsani (https: //codepen.io/soufiane-khalfaoui-hassani/pen/LYpPWda)  */
