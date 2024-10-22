@@ -8,7 +8,7 @@ const confirmPsword = document.querySelector("#confirm-psword");
 const registerBtn = document.querySelector("#button");
 
 registerBtn.addEventListener("click", register);
-console.log("hello regi")
+console.log("hello reg")
 
 
 function register() {
