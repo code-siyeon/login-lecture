@@ -26,9 +26,10 @@ const process = {
         console.log(response);
         return res.json(response);
     },
-    register: (req, res) => {
+    register: async (req, res) => {
+        console.log(req.body);
         const user = new User(req.body);
-        const response = user.register();
+        const response = await user.register();
         return res.json(response);
     }
 };
@@ -39,52 +40,9 @@ const process = {
 module.exports = {
     output,
     process
-};
+};   //원본
 
 
-/* "use strict";
-
-const User = require("../../models/User");
-
-const output = {
-    home: (req, res) => {
-        res.render("home/index");
-    },
-    login: (req, res) => {
-        res.render("home/login");
-    },
-    register: (req, res) => {
-        res.render("home/register");
-    }
-};
-
-const process = {
-    login: async (req, res) => {
-        const user = new User(req.body);
-        try {
-            const response = await user.login();
-            return res.json(response);
-        } catch (err) {
-            console.error("로그인 처리 중 오류:", err);
-            return res.status(500).json({ success: false, msg: err.message || "서버 오류가 발생했습니다." });
-        }
-    },
-    register: async (req, res) => {
-        const user = new User(req.body);
-        try {
-            const response = await user.register();
-            return res.json(response);
-        } catch (err) {
-            console.error("회원가입 처리 중 오류:", err);
-            return res.status(500).json({ success: false, msg: err.message || "서버 오류가 발생했습니다." });
-        }
-    }
-};
-
-module.exports = {
-    output,
-    process,
-}; */
 
 
 
