@@ -38,7 +38,6 @@ function register() {
                 alert(JSON.stringify(res.msg)); // 객체를 문자열로 변환
             }
         })
-
         .catch((error) => {
             console.error("회원가입 중 에러 발생:", error);
         });
