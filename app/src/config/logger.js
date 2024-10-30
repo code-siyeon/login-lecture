@@ -8,16 +8,12 @@ const printFormat = printf(({ timestamp, label, level, message }) => {
 
 const printLogFormat = {
     file: combine(
-        label({
-            label: "백엔드 맛보기"
-        }),
-        timestamp({
-            format: "YYYY-MM-DD HH:mm:ss"
-        }),
+        label({ label: "백엔드 맛보기" }),
+        timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         printFormat
     ),
     console: combine(
-        colorize(), //
+        colorize(),
         simple()
     ),
 };
@@ -42,5 +38,10 @@ const logger = createLogger({
 if (process.env.NODE_ENV !== "production") {
     logger.add(opts.console);
 }
+
+
+logger.stream = {
+    write: (message) => logger.info(message),
+};
 
 module.exports = logger;
